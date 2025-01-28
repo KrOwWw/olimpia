@@ -1,0 +1,65 @@
+body {
+    perspective: 1000px;
+    background-color: #333;
+}
+
+.cube {
+    padding: 50vh;
+    position: relative;
+    width: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(20deg);
+    animation: rotate 5s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    aspect-ratio: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.5)
+    );
+    text-shadow: 0 0 1px #0C548D;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cube .front {
+    transform: translateZ(100px);
+}
+
+.cube .back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.cube .right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.cube .left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.cube .top {
+    transform: rotateX(90deg) translateZ(100px);
+}
+
+.cube .bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateX(-20deg) rotateY(0deg);
+    }
+
+    to {
+        transform: rotateX(-20deg) rotateY(360deg);
+    }
+}
